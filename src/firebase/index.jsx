@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import {getAuth, onAuthStateChanged} from 'firebase/auth';
-import {getFirestore, collection, getDocs} from 'firebase/firestore';
+import {getAuth, onAuthStateChanged, signInAnonymously, signInWithEmailAndPassword, connectAuthEmulator} from 'firebase/auth';
+import {getFirestore, collection, getDocs, onSnapshot} from 'firebase/firestore';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -17,12 +17,20 @@ const firebaseApp = initializeApp({
     measurementId: "G-5LHSZ1CDR4"
 });
 const auth = getAuth(firebaseApp);
+connectAuthEmulator(auth, "http://127.0.0.1:5173/");
 // Initialize Firebase
 const db = getFirestore(firebaseApp);
 onAuthStateChanged(auth, user => {
     if(user != null){
-        console.log("Logged in!");
+        syncData(user);
     } else {
         console.log("No user");
     }
 });
+
+function syncData(user) {
+    const messageRef = collection(db, `messages/${user.uid}`);
+    onSnapshot(messageRef, snapshot => {
+        const messages = snapshot.docs.map(doc => doc.data());
+    });
+}

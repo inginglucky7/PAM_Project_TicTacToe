@@ -1,7 +1,5 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
-import testcomp from "./components/testcomp.jsx";
 import Testcomp from "./components/testcomp.jsx";
 
 function App() {
