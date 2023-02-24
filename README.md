@@ -3,7 +3,7 @@ WebDev Project
 
 ***อ่านก่อนจะได้ไม่โง่***
 
-1.) Clone มาซะไว้สัก Directory 
+1.) Clone มาซะไว้สัก Directory<br>
 2.) เปิด Project เข้าไปที่ Dirที่คุณCloneมา/PAM_Project_TicTacToe/pam_project
 3.) พิมพ์คำสั่ง npm install ใน Editor Terminal ของคุณ
 4.) เวลาจะทำก็ npm run dev มันจะให้ domain local มา ก็กดไปซะ มันจะเป็นเหมือน Live server ของ VSCode น่ะแหละ แต่ถ้ามึงทำผิดมันจะด่ามึงและบอกสาเหตุว่าไฟล์ไหนบรรทัดไหน
