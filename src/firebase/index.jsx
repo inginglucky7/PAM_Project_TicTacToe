@@ -16,10 +16,20 @@ const firebaseApp = initializeApp({
     appId: "1:380267568031:web:e2464b4d49a4c0420e7baa",
     measurementId: "G-5LHSZ1CDR4"
 });
+
+// Initialize the FirebaseUI Widget using Firebase.
+
 const auth = getAuth(firebaseApp);
-connectAuthEmulator(auth, "http://127.0.0.1:5173/");
+connectAuthEmulator(auth, "http://localhost:5173");
 // Initialize Firebase
 const db = getFirestore(firebaseApp);
+const loginEmailPassword = async() => {
+    const loginEmail = txtEmail.value;
+    const loginPassword = txtPassword.value;
+
+    const userCredential = await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
+    console.log(userCredential.user);
+}
 onAuthStateChanged(auth, user => {
     if(user != null){
         syncData(user);
