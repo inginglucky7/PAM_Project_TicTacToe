@@ -1,6 +1,12 @@
 import { useState } from 'react'
 import './App.css'
 import Testcomp from "./components/testcomp.jsx";
+import LoginPage from "./components/LoginPage.jsx"
+import RegisterPage from "./components/RegisterPage.jsx"
+import HowToPlayPage from "./components/HowToPlayPage.jsx"
+import SettingsPage from "./components/SettingsPage.jsx"
+import ProfilePage from "./components/Profile.jsx"
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -8,20 +14,15 @@ function App() {
   return (
     <div className="App">
         <div>
-            <Testcomp/>
+          <Routes>
+            <Route path="/" exact element={<Testcomp/>}/>
+            <Route path="/loginpage" element={<LoginPage/>}/>
+            <Route path="/registerpage" element={<RegisterPage/>}/>
+            <Route path="/howtoplaypage" element={<HowToPlayPage/>}/>
+            <Route path="/settingspage" element={<SettingsPage/>}/>
+            <Route path="/profilepage" element={<ProfilePage/>}/>
+          </Routes>
         </div>
-      <h1 className="text-orange-600">Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </div>
   )
 }
