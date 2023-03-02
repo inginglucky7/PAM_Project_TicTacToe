@@ -1,6 +1,5 @@
 {
   "functions": [
-
     {
       "source": "pam-tictactoe-firestore",
       "codebase": "pam-tictactoe-firestore",
